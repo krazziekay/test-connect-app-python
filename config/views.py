@@ -12,7 +12,7 @@ def index(request):
        'baseUrl': BASE_URL,
        'vendor': {
            'name': 'Python connect app sample',
-           'url': 'https://github.com/krazziekay/test-connect-app-node'
+           'url': 'https://github.com/krazziekay/test-connect-app-python'
        },
        'authentication': {
            'type': 'none'
@@ -32,8 +32,17 @@ def index(request):
                'name': {
                    'value': 'Index'
                },
-               'location': 'admin_plugins_menu/gh-addon-admin-section'
+               'location': 'admin_plugins_menu/test-connect-app'
            }],
+           'webSections': [
+           		{
+           			'key': "test-connect-app",
+           			'location': "admin_plugins_menu",
+           			'name': {
+           				'value': "Test Connect App"
+           			}
+           		}
+           	],
            'generalPages': [
                {
                    'url': '/api/contact',

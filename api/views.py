@@ -1,6 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.views.decorators.clickjacking import xframe_options_exempt
 
+
+# Need this decorator so that this page can be viewed within the iframe
+# Source: https://stackoverflow.com/questions/33267383/how-to-configure-x-frame-options-in-django-to-allow-iframe-embedding-of-one-view#answer-33267908
+@xframe_options_exempt
 def index(request):
   template = loader.get_template('index.html')
   context = {
@@ -20,6 +25,7 @@ def index(request):
   }
   return HttpResponse(template.render(context, request))
 
+@xframe_options_exempt
 def info(request):
   template = loader.get_template('index.html')
   context = {
@@ -38,7 +44,7 @@ def info(request):
   }
   return HttpResponse(template.render(context, request))
 
-
+@xframe_options_exempt
 def contact(request):
   template = loader.get_template('index.html')
   context = {
